@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
-function App() {
+const ping = async () => {
+    let url = "http://localhost:9999/"
+    let got = await axios.get(url).catch(err => console.log(err));
+    console.log(got);
+}
+
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +24,10 @@ function App() {
         >
           Learn React
         </a>
+        <button type="button"
+                onClick={ping}>
+            Ping
+        </button>
       </header>
     </div>
   );
