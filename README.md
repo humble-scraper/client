@@ -1,2 +1,2 @@
-# screact
-React client for the humble bundle scraper
+# next-typescript-template
+Example React project using Next.js
