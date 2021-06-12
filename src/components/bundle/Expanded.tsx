@@ -4,19 +4,19 @@ import { urlFor } from "../../util";
 const ExpandedModalRoot = styled.div`
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 100%;
+  height: 100%; 
   background-color: rgba(0, 0, 0, 0.4);
   overflow: auto;
-  padding-top: 5%; /* Location of the box */
-  padding-left: 25%;
+  padding-top: 3%;
+  padding-left: 20%;
   left: 0;
   top: 0;
 `;
 
 const ExpandedRoot = styled.div`
-  height: 600px;
-  width: 650px;
+  height: 85%;
+  width: 60em;
   background: linear-gradient(
     to right,
     #bf953f,
@@ -33,7 +33,7 @@ const ExpandedRoot = styled.div`
 const ExpandedFlex = styled.div`
   display: flex;
   flex-direction: row;
-  width: inherit;
+  width: 100%;
   height: 29%;
 `;
 
@@ -42,7 +42,7 @@ const ImgService = styled.img.attrs({
   alt: "Some image but expanded",
 })`
   height: 70%;
-  width: inherit;
+  width: 100%;
   background-color: #a59225;
 `;
 
