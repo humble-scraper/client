@@ -12,17 +12,12 @@ function Bundle(): JSX.Element {
   return (
     <>
       {showExpanded ? (
-        <Collapsed
-          // showExpanded={showExpanded}
-          // setExpanded={setExpanded}
-          open={open}
-        />
+        <Collapsed open={open} />
       ) : (
-        <Expanded
-          // showExpanded={showExpanded}
-          // setExpanded={setExpanded}
-          open={open}
-        />
+        <div>
+          <Collapsed />
+          <Expanded open={open} />
+        </div>
       )}
     </>
   );

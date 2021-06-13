@@ -1,10 +1,22 @@
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import { urlFor } from "../../util";
 
+const ExpandedModalRoot = styled.div`
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  width: 100%;
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  padding-top: 3%;
+  padding-left: 20%;
+  left: 0;
+  top: 0;
+`;
+
 const ExpandedRoot = styled.div`
-  height: 300px;
-  width: 350px;
+  height: 85%;
+  width: 60em;
   background: linear-gradient(
     to right,
     #bf953f,
@@ -21,7 +33,7 @@ const ExpandedRoot = styled.div`
 const ExpandedFlex = styled.div`
   display: flex;
   flex-direction: row;
-  width: inherit;
+  width: 100%;
   height: 29%;
 `;
 
@@ -30,7 +42,7 @@ const ImgService = styled.img.attrs({
   alt: "Some image but expanded",
 })`
   height: 70%;
-  width: inherit;
+  width: 100%;
   background-color: #a59225;
 `;
 
@@ -54,18 +66,20 @@ const BigAssButton = styled.button`
   background-color: gold;
 `;
 
-type ExpandedProps = { open?: MouseEventHandler<HTMLButtonElement> };
+type ExpandedProps = { open?: () => void };
 
 const Expanded = (
   { open }: ExpandedProps = { open: () => undefined }
 ): JSX.Element => (
-  <ExpandedRoot>
-    <ImgService />
-    <ExpandedFlex>
-      <Title />
-      <BigAssButton onClick={open}>Expanded View</BigAssButton>
-    </ExpandedFlex>
-  </ExpandedRoot>
+  <ExpandedModalRoot>
+    <ExpandedRoot>
+      <ImgService />
+      <ExpandedFlex>
+        <Title />
+        <BigAssButton onClick={open}>Close this window</BigAssButton>
+      </ExpandedFlex>
+    </ExpandedRoot>
+  </ExpandedModalRoot>
 );
 
 export default Expanded;
