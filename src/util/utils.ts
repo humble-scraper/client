@@ -1,9 +1,9 @@
 import { CSSProperties } from "react";
 
-const assetPrefix = process.env.ASSET_PREFIX || "";
-const urlFor = (path = "/"): string => `${assetPrefix}${path}`;
-const redirect = (path = "/"): void =>
-  window?.location?.replace(`${assetPrefix}${path}`);
+const assetPrefix = process.env.NODE_ENV === "production" ? "/client/" : "/";
+const urlFor = (path = ""): string =>
+  `${assetPrefix}${path.replace(/^\//, "")}`;
+const redirect = (path = ""): void => window?.location?.replace(urlFor(path));
 
 /**
  * Convert template literal backtick-strings to React style objects for use as
