@@ -49,6 +49,9 @@ const BigAssButton = styled.button`
   border-radius: 4px;
   background-color: inherit;
   color: white;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 type CollapsedProps = { open?: MouseEventHandler<HTMLButtonElement> };
