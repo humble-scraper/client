@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { urlFor } from "../../../util";
 
 const ItemRoot = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const ItemFlex = styled.div`
 `;
 
 const ItemImg = styled.img.attrs({
+  src: urlFor("image_placeholder3.jpg"),
   alt: "item image",
 })`
   background-color: #868ab1;
@@ -46,9 +48,26 @@ const ItemPrice = styled.div`
 `;
 
 const ItemLink = styled.div`
+  display: flex;
   height: 50%;
   min-width: inherit;
   background-color: #a173c0;
+`;
+
+// potentially break into its own component
+const LinkHeader = styled.div.attrs({
+  children: "Z LIB LINK :",
+})`
+  background-color: inherit;
+  width: 50%;
+`;
+
+const LinkButton = styled.button.attrs({
+  children: "Link AVAILABLE",
+})`
+  height: 100%; // to change
+  width: 50%;
+  background-color: #3cff00;
 `;
 
 const Item = (): JSX.Element => (
@@ -60,7 +79,10 @@ const Item = (): JSX.Element => (
     </ItemFlex>
     <ItemFlex>
       <ItemPrice>$69.99</ItemPrice>
-      <ItemLink>www.ThiccBois.com</ItemLink>
+      <ItemLink>
+        <LinkHeader />
+        <LinkButton />
+      </ItemLink>
     </ItemFlex>
   </ItemRoot>
 );

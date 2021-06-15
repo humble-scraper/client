@@ -4,7 +4,7 @@ import Item from "./Item";
 const ItemContainer = styled.div`
   min-height: 6em;
   max-height: 18em;
-  width: 40em;
+  width: 50em;
   background-color: red;
   padding: 1%;
   margin: 1%;

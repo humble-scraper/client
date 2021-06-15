@@ -10,14 +10,15 @@ const ExpandedModalRoot = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   overflow: auto;
   padding-top: 3%;
-  padding-left: 20%;
+  padding-left: 15%;
   left: 0;
   top: 0;
+  justify-content: center;
 `;
 
 const ExpandedRoot = styled.div`
-  height: 85%;
-  width: 60em;
+  height: 90%;
+  width: 75em;
   background: linear-gradient(
     to right,
     #bf953f,
@@ -26,7 +27,6 @@ const ExpandedRoot = styled.div`
     #fbf5b7,
     #aa771c
   );
-  margin: 1%;
   display: block;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
@@ -35,7 +35,8 @@ const ExpandedFlex = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 10%;
+  min-height: 7em;
+  max-height: 20em;
 `;
 
 const ImgService = styled.img.attrs({
@@ -70,6 +71,13 @@ const BigAssButton = styled.button`
   }
 `;
 
+const ItemPrice = styled.div`
+background-color: #72611f;
+height: 15em;
+margin:2%;
+width:96%;
+`;
+
 type ExpandedProps = { open?: () => void };
 
 const Expanded = (
@@ -78,11 +86,12 @@ const Expanded = (
   <ExpandedModalRoot>
     <ExpandedRoot>
       <ImgService />
+      <Title />
       <ExpandedFlex>
-        <Title />
-        <BigAssButton onClick={open}>Close this window</BigAssButton>
-      </ExpandedFlex>
       <ItemList />
+      <ItemPrice/>
+      </ExpandedFlex>
+      <BigAssButton onClick={open}>Close this window</BigAssButton>
     </ExpandedRoot>
   </ExpandedModalRoot>
 );
