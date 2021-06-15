@@ -19,16 +19,10 @@ const ExpandedModalRoot = styled.div`
 const ExpandedRoot = styled.div`
   height: 90%;
   width: 75em;
-  background: linear-gradient(
-    to right,
-    #bf953f,
-    #fcf6ba,
-    #b38728,
-    #fbf5b7,
-    #aa771c
-  );
+  background-color: #282c34;
   display: block;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(247, 244, 244, 0.19);
 `;
 
 const ExpandedFlex = styled.div`
@@ -49,33 +43,22 @@ const ImgService = styled.img.attrs({
 `;
 
 const Title = styled.div.attrs({
-  children: "Gold Butterfly",
+  children: "Quantic Dream Deluxe Bundle",
 })`
   width: 50%;
   padding: 0.5em;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #524c4c;
-`;
-
-const BigAssButton = styled.button`
-  width: 6em;
-  height: 3em;
-  margin-left: 2.1em;
-  align-self: center;
-  border-radius: 4px;
-  background-color: gold;
-  &:hover {
-    cursor: pointer;
-  }
+  color: #ffffff;
+  margin: 1em;
 `;
 
 const ItemPrice = styled.div`
-background-color: #72611f;
-height: 15em;
-margin:2%;
-width:96%;
+  background-color: #7d828a;
+  height: 15em;
+  margin: 2%;
+  width: 96%;
 `;
 
 type ExpandedProps = { open?: () => void };
@@ -83,15 +66,14 @@ type ExpandedProps = { open?: () => void };
 const Expanded = (
   { open }: ExpandedProps = { open: () => undefined }
 ): JSX.Element => (
-  <ExpandedModalRoot>
+  <ExpandedModalRoot onClick={open}>
     <ExpandedRoot>
       <ImgService />
       <Title />
       <ExpandedFlex>
-      <ItemList />
-      <ItemPrice/>
+        <ItemList />
+        <ItemPrice />
       </ExpandedFlex>
-      <BigAssButton onClick={open}>Close this window</BigAssButton>
     </ExpandedRoot>
   </ExpandedModalRoot>
 );

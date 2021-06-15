@@ -6,15 +6,18 @@ const ItemRoot = styled.div`
   width: inherit;
   height: 5em;
   margin-bottom: 0.2em;
-  background-color: aqua;
+  background-color: #282c34;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
   &:hover {
-    background-color: #d4a5a5;
+    background-color: #282c3497;
     cursor: pointer;
   }
 `;
 
 const ItemFlex = styled.div`
-  background-color: #41c420;
+  background-color: transparent;
   width: 35%;
   height: inherit;
 `;
@@ -31,32 +34,35 @@ const ItemImg = styled.img.attrs({
 const ItemName = styled.div`
   height: 50%;
   min-width: inherit;
-  background-color: #b186a4;
+  background-color: transparent;
 `;
 
 const ItemPublisher = styled.div`
   height: 50%;
   min-width: inherit;
 
-  background-color: #b19786;
+  background-color: transparent;
 `;
 
 const ItemPrice = styled.div`
   height: 50%;
   min-width: inherit;
-  background-color: beige;
+  background-color: transparent;
+  text-align: right;
+  padding-right: 4em;
+  padding-top: 0.05em;
 `;
 
 const ItemLink = styled.div`
   display: flex;
   height: 50%;
   min-width: inherit;
-  background-color: #a173c0;
+  background-color: transparent;
 `;
 
 // potentially break into its own component
 const LinkHeader = styled.div.attrs({
-  children: "Z LIB LINK :",
+  // children: "Z LIB LINK :",
 })`
   background-color: inherit;
   width: 50%;
@@ -67,15 +73,23 @@ const LinkButton = styled.button.attrs({
 })`
   height: 100%; // to change
   width: 50%;
-  background-color: #3cff00;
+  background-color: #54e628;
+  &:hover {
+    background-color: #3ba81a99;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: red;
+    cursor: pointer;
+  }
 `;
 
 const Item = (): JSX.Element => (
   <ItemRoot>
     <ItemImg />
     <ItemFlex>
-      <ItemName>How not to do Tax Evasion</ItemName>
-      <ItemPublisher>Donaldo J Trumpu</ItemPublisher>
+      <ItemName>Detroit: Become Human Deluxe Editon</ItemName>
+      <ItemPublisher>Quantic Dream</ItemPublisher>
     </ItemFlex>
     <ItemFlex>
       <ItemPrice>$69.99</ItemPrice>
