@@ -11,8 +11,10 @@ const ItemRoot = styled.div`
   font-weight: bold;
   color: white;
   &:hover {
-    background-color: #282c3497;
+    background-color: #282c343e;
     cursor: pointer;
+    
+  color: #070707;
   }
 `;
 
@@ -49,8 +51,8 @@ const ItemPrice = styled.div`
   min-width: inherit;
   background-color: transparent;
   text-align: right;
+  align-items: center;
   padding-right: 4em;
-  padding-top: 0.05em;
 `;
 
 const ItemLink = styled.div`

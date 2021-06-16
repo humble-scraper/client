@@ -1,3 +1,4 @@
+import { Close } from "@material-ui/icons";
 import styled from "styled-components";
 import { urlFor } from "../../util";
 import ItemList from "./item/ItemList";
@@ -39,7 +40,17 @@ const ImgService = styled.img.attrs({
 })`
   height: 20%;
   width: 100%;
-  background-color: #a59225;
+`;
+
+const CoolRainbowThingy = styled.div`
+  height: 0.5em;
+  width: inherit;
+  background-image: linear-gradient(
+    130deg,
+    #ff7a18,
+    #af002d 41.07%,
+    #319197 76.05%
+  );
 `;
 
 const Title = styled.div.attrs({
@@ -61,19 +72,39 @@ const ItemPrice = styled.div`
   width: 96%;
 `;
 
+const CloseButton = styled.button.attrs({
+  children: "Close",
+})`
+  height: 4em;
+  width: 40%;
+  align-self: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  color: white;
+  font-size: large;
+  background-color: #282c34a7;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(247, 244, 244, 0.19);
+`;
+
 type ExpandedProps = { open?: () => void };
 
 const Expanded = (
   { open }: ExpandedProps = { open: () => undefined }
 ): JSX.Element => (
-  <ExpandedModalRoot onClick={open}>
+  <ExpandedModalRoot>
     <ExpandedRoot>
       <ImgService />
+      <CoolRainbowThingy />
       <Title />
       <ExpandedFlex>
         <ItemList />
         <ItemPrice />
       </ExpandedFlex>
+      <ExpandedFlex>
+        <CloseButton onClick={open} />
+      </ExpandedFlex>
+      <CoolRainbowThingy />
     </ExpandedRoot>
   </ExpandedModalRoot>
 );
