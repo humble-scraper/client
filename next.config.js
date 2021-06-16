@@ -2,11 +2,9 @@ module.exports = {
   future: {
     webpack5: true,
   },
-  // basePath: process.env.NODE_ENV === "production" ? "/template" : "",
-  // assetPrefix: process.env.NODE_ENV === "production" ? "/template/" : "/",
 
-  basePath: process.env.ASSET_PREFIX || "",
-  assetPrefix: `${process.env.ASSET_PREFIX || ""}/`,
+  basePath: process.env.NODE_ENV === "production" ? "/client" : "",
+  assetPrefix: process.env.NODE_ENV === "production" ? "/client/" : "/",
 
   webpack: (config) => {
     config.module.rules.push({
