@@ -1,4 +1,3 @@
-import { Close } from "@material-ui/icons";
 import styled from "styled-components";
 import { urlFor } from "../../util";
 import ItemList from "./item/ItemList";

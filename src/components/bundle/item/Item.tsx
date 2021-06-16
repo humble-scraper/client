@@ -13,8 +13,7 @@ const ItemRoot = styled.div`
   &:hover {
     background-color: #282c343e;
     cursor: pointer;
-    
-  color: #070707;
+    color: #070707;
   }
 `;
 
@@ -63,15 +62,13 @@ const ItemLink = styled.div`
 `;
 
 // potentially break into its own component
-const LinkHeader = styled.div.attrs({
-  // children: "Z LIB LINK :",
-})`
+const LinkHeader = styled.div`
   background-color: inherit;
   width: 50%;
 `;
 
 const LinkButton = styled.button.attrs({
-  children: "Link AVAILABLE",
+  children: "Link Available",
 })`
   height: 100%; // to change
   width: 50%;
@@ -91,7 +88,7 @@ const Item = (): JSX.Element => (
     <ItemImg />
     <ItemFlex>
       <ItemName>Detroit: Become Human Deluxe Editon</ItemName>
-      <ItemPublisher>Quantic Dream</ItemPublisher>
+      <ItemPublisher>Quantic Dream LLC</ItemPublisher>
     </ItemFlex>
     <ItemFlex>
       <ItemPrice>$69.99</ItemPrice>
