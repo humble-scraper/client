@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { urlFor } from "../../util";
 import ItemList from "./item/ItemList";
+import Mirror from "./mirror/Mirror";
 
 const ExpandedModalRoot = styled.div`
   position: fixed; /* Stay in place */
@@ -10,7 +11,7 @@ const ExpandedModalRoot = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   overflow: auto;
   padding-top: 3%;
-  padding-left: 15%;
+  padding-left: 13%;
   left: 0;
   top: 0;
   justify-content: center;
@@ -60,15 +61,9 @@ const Title = styled.div.attrs({
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+  font-size:1.25em;
   color: #ffffff;
-  margin: 1em;
-`;
-
-const ItemPrice = styled.div`
-  background-color: #7d828a;
-  height: 15em;
-  margin: 2%;
-  width: 96%;
+  margin: 0.5em;
 `;
 
 const CloseButton = styled.button.attrs({
@@ -98,7 +93,7 @@ const Expanded = (
       <Title />
       <ExpandedFlex>
         <ItemList />
-        <ItemPrice />
+        <Mirror />
       </ExpandedFlex>
       <ExpandedFlex>
         <CloseButton onClick={open} />
