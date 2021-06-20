@@ -20,7 +20,7 @@ const CollapsedFlex = styled.div`
 `;
 
 const Title = styled.div.attrs({
-  children: "Pink Butterfly",
+  children: "Quantic Dream Classical Bundle",
 })`
   width: 50%;
   padding: 0.5em;
