@@ -7,18 +7,18 @@ type BundleContentProps = {
 };
 
 type ItemProps = {
-  itemName: string;
-  itemPublisher: string;
-  itemPrice: number;
-  itemImage: string;
+  itemTitle?: string;
+  itemPublisher?: string;
+  itemPrice?: number;
+  itemImage?: string;
 };
 
-type BundleProps = {
-  bundleTitle: string;
-  bundlePrice: number;
-  bundleCollapsedImage: string;
-  bundleExpandedImage: string;
-  bundleItems: [ItemProps];
+export type BundleProps = {
+  bundleTitle?: string;
+  bundlePrice?: number;
+  bundleCollapsedImage?: string;
+  bundleExpandedImage?: string;
+  bundleItems?: ItemProps[];
 };
 
 const itemTest = [
@@ -42,12 +42,12 @@ const itemTest = [
   },
 ];
 
-const bundleTest = {
-  bundleName: "Quantic Dream Deluxe Bundle",
+export const bundleTest = {
+  bundleTitle: "Quantic Dream SUPER Deluxe Bundle",
   bundlePrice: 180.99,
   bundleCollapsedImage: "image_placeholder1.jpg",
   bundleExpandedImage: "image_placeholder2.jpg",
-  bundleItems: itemTest
+  bundleItems: itemTest,
 };
 
 export default BundleContentProps;

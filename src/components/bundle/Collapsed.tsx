@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import { urlFor } from "../../util";
 
@@ -19,9 +18,7 @@ const CollapsedFlex = styled.div`
   height: 29%;
 `;
 
-const Title = styled.div.attrs({
-  children: "Quantic Dream Classical Bundle",
-})`
+const Title = styled.div`
   width: 50%;
   padding: 0.5em;
   text-align: center;
@@ -54,15 +51,17 @@ const BigAssButton = styled.button`
   }
 `;
 
-type CollapsedProps = { open?: MouseEventHandler<HTMLButtonElement> };
+type CollapsedProps = { open?: () => void; bundleTitle?: string };
 
 const Collapsed = (
-  { open }: CollapsedProps = { open: () => undefined }
+  { open, bundleTitle }: CollapsedProps = {
+    open: () => undefined,
+  }
 ): JSX.Element => (
   <CollapsedRoot>
     <ImgService />
     <CollapsedFlex>
-      <Title />
+      <Title> {bundleTitle}</Title>
       <BigAssButton onClick={open}>Collapsed View</BigAssButton>
     </CollapsedFlex>
   </CollapsedRoot>

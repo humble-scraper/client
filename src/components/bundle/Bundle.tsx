@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { BundleProps, bundleTest } from "./BundleContentProps";
 import Collapsed from "./Collapsed";
 import Expanded from "./Expanded";
 
-function Bundle(): JSX.Element {
+function Bundle(props: BundleProps): JSX.Element {
   const [showExpanded, setExpanded] = useState(true);
 
   const open = () => {
@@ -12,11 +13,11 @@ function Bundle(): JSX.Element {
   return (
     <>
       {showExpanded ? (
-        <Collapsed open={open} />
+        <Collapsed {...props} open={open} />
       ) : (
         <div>
-          <Collapsed />
-          <Expanded open={open} />
+          <Collapsed {...bundleTest} open={open} />
+          <Expanded {...props} open={open} />
         </div>
       )}
     </>

@@ -53,15 +53,13 @@ const CoolRainbowThingy = styled.div`
   );
 `;
 
-const Title = styled.div.attrs({
-  children: "Quantic Dream Deluxe Bundle",
-})`
+const Title = styled.div`
   width: 50%;
   padding: 0.5em;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size:1.25em;
+  font-size: 1.25em;
   color: #ffffff;
   margin: 0.5em;
 `;
@@ -81,16 +79,16 @@ const CloseButton = styled.button.attrs({
     0 6px 20px 0 rgba(247, 244, 244, 0.19);
 `;
 
-type ExpandedProps = { open?: () => void };
+type ExpandedProps = { open?: () => void; bundleTitle?: string };
 
 const Expanded = (
-  { open }: ExpandedProps = { open: () => undefined }
+  { open, bundleTitle }: ExpandedProps = { open: () => undefined }
 ): JSX.Element => (
   <ExpandedModalRoot>
     <ExpandedRoot>
       <ImgService />
       <CoolRainbowThingy />
-      <Title />
+      <Title>{bundleTitle}</Title>
       <ExpandedFlex>
         <ItemList />
         <Mirror />
