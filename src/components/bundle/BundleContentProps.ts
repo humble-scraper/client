@@ -6,7 +6,7 @@ type BundleContentProps = {
   open: () => void;
 };
 
-type ItemProps = {
+export type ItemProps = {
   itemTitle?: string;
   itemPublisher?: string;
   itemPrice?: number;
@@ -43,10 +43,10 @@ const itemTest = [
 ];
 
 export const bundleTest = {
-  bundleTitle: "Quantic Dream SUPER Deluxe Bundle",
+  bundleTitle: "Quantic Dream Deluxe Bundle",
   bundlePrice: 180.99,
-  bundleCollapsedImage: "image_placeholder1.jpg",
-  bundleExpandedImage: "image_placeholder2.jpg",
+  bundleCollapsedImage: "quantic_Dream_Collapsed.jpg",
+  bundleExpandedImage: "quantic_Dream_Expanded.jpg",
   bundleItems: itemTest,
 };
 

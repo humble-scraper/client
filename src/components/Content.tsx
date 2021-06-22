@@ -20,9 +20,9 @@ const Content = (): JSX.Element => (
     <SectionTitle>Featured</SectionTitle>
     <Bundle {...bundleTest} />
     <SectionTitle>Previously Scrolled</SectionTitle>
-    <Bundle />
+    <Bundle {...bundleTest} />
     <SectionTitle>Saved</SectionTitle>
-    <Bundle />
+    <Bundle {...bundleTest} />
   </ContentRoot>
 );
 

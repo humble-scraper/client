@@ -16,7 +16,7 @@ function Bundle(props: BundleProps): JSX.Element {
         <Collapsed {...props} open={open} />
       ) : (
         <div>
-          <Collapsed {...bundleTest} open={open} />
+          <Collapsed {...props} open={open} />
           <Expanded {...props} open={open} />
         </div>
       )}

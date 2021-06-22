@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { urlFor } from "../../util";
+import { ItemProps } from "./BundleContentProps";
 import ItemList from "./item/ItemList";
 import Mirror from "./mirror/Mirror";
 
@@ -35,7 +35,6 @@ const ExpandedFlex = styled.div`
 `;
 
 const ImgService = styled.img.attrs({
-  src: urlFor("image_placeholder2.jpg"),
   alt: "Some image but expanded",
 })`
   height: 20%;
@@ -79,18 +78,25 @@ const CloseButton = styled.button.attrs({
     0 6px 20px 0 rgba(247, 244, 244, 0.19);
 `;
 
-type ExpandedProps = { open?: () => void; bundleTitle?: string };
+type ExpandedProps = {
+  open?: () => void;
+  bundleTitle?: string;
+  bundleExpandedImage?: string;
+  bundleItems?: ItemProps[];
+};
 
 const Expanded = (
-  { open, bundleTitle }: ExpandedProps = { open: () => undefined }
+  { open, bundleTitle, bundleExpandedImage, bundleItems }: ExpandedProps = {
+    open: () => undefined,
+  }
 ): JSX.Element => (
   <ExpandedModalRoot>
     <ExpandedRoot>
-      <ImgService />
+      <ImgService src={bundleExpandedImage} />
       <CoolRainbowThingy />
       <Title>{bundleTitle}</Title>
       <ExpandedFlex>
-        <ItemList />
+        <ItemList itemList={bundleItems} />
         <Mirror />
       </ExpandedFlex>
       <ExpandedFlex>

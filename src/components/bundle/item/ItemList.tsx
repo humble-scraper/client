@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Item from "./Item";
+import { ItemProps } from "../BundleContentProps";
 
 const ItemContainer = styled.div`
   min-height: 6em;
@@ -13,11 +14,15 @@ const ItemContainer = styled.div`
   margin: 1%;
 `;
 
-const ItemList = (): JSX.Element => (
+type itemListProps = {
+  itemList?: ItemProps[];
+};
+
+const ItemList = ({ itemList }: itemListProps = {}): JSX.Element => (
   <ItemContainer>
-    <Item />
-    <Item />
-    <Item />
+    {itemList.map((item: ItemProps) => (
+      <Item {...item} key={item.itemTitle} />
+    ))}
   </ItemContainer>
 );
 

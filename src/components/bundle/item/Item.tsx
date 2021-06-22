@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { urlFor } from "../../../util";
+import { ItemProps } from "../BundleContentProps";
 
 const ItemRoot = styled.div`
   display: flex;
@@ -24,7 +24,6 @@ const ItemFlex = styled.div`
 `;
 
 const ItemImg = styled.img.attrs({
-  src: urlFor("image_placeholder3.jpg"),
   alt: "item image",
 })`
   background-color: #868ab1;
@@ -83,15 +82,20 @@ const LinkButton = styled.button.attrs({
   }
 `;
 
-const Item = (): JSX.Element => (
+const Item = ({
+  itemTitle,
+  itemImage,
+  itemPrice,
+  itemPublisher,
+}: ItemProps = {}): JSX.Element => (
   <ItemRoot>
-    <ItemImg />
+    <ItemImg src={itemImage} />
     <ItemFlex>
-      <ItemName>Detroit: Become Human Deluxe Editon</ItemName>
-      <ItemPublisher>Quantic Dream LLC</ItemPublisher>
+      <ItemName>{itemTitle}</ItemName>
+      <ItemPublisher>{itemPublisher}</ItemPublisher>
     </ItemFlex>
     <ItemFlex>
-      <ItemPrice>$69.99</ItemPrice>
+      <ItemPrice>{itemPrice}</ItemPrice>
       <ItemLink>
         <LinkHeader />
         <LinkButton />

@@ -29,7 +29,6 @@ const Title = styled.div`
 `;
 
 const ImgService = styled.img.attrs({
-  src: urlFor("image_placeholder.jpg"),
   alt: "Some image",
 })`
   height: 70%;
@@ -51,15 +50,19 @@ const BigAssButton = styled.button`
   }
 `;
 
-type CollapsedProps = { open?: () => void; bundleTitle?: string };
+type CollapsedProps = {
+  open?: () => void;
+  bundleTitle?: string;
+  bundleCollapsedImage?: string;
+};
 
 const Collapsed = (
-  { open, bundleTitle }: CollapsedProps = {
+  { open, bundleTitle, bundleCollapsedImage }: CollapsedProps = {
     open: () => undefined,
   }
 ): JSX.Element => (
   <CollapsedRoot>
-    <ImgService />
+    <ImgService src={bundleCollapsedImage} />
     <CollapsedFlex>
       <Title> {bundleTitle}</Title>
       <BigAssButton onClick={open}>Collapsed View</BigAssButton>
