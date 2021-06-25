@@ -5,13 +5,14 @@ import { ItemProps } from "../BundleContentProps";
 const ItemContainer = styled.div`
   min-height: 6em;
   max-height: 18em;
-  width: 53em;
+  min-width: 53em;
   background-color: #7d828a;
   padding-left: 0.5%;
   padding-right: 0.5%;
   padding-top: 0.5%;
   padding-bottom: 0%;
   margin: 1%;
+  overflow-y: scroll;
 `;
 
 type itemListProps = {

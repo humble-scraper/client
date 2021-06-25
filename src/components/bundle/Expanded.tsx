@@ -7,9 +7,8 @@ const ExpandedModalRoot = styled.div`
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  overflow: auto;
   padding-top: 3%;
   padding-left: 13%;
   left: 0;
@@ -18,7 +17,7 @@ const ExpandedModalRoot = styled.div`
 `;
 
 const ExpandedRoot = styled.div`
-  height: 90%;
+  min-height: 90%;
   width: 75em;
   background-color: #282c34;
   display: block;
@@ -31,13 +30,13 @@ const ExpandedFlex = styled.div`
   flex-direction: row;
   width: 100%;
   min-height: 7em;
-  max-height: 20em;
+  max-height: 60000em;
 `;
 
 const ImgService = styled.img.attrs({
   alt: "Some image but expanded",
 })`
-  height: 20%;
+  height: 8em;
   width: 100%;
 `;
 
