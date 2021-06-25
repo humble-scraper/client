@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import { urlFor } from "../../util";
 
@@ -19,9 +18,7 @@ const CollapsedFlex = styled.div`
   height: 29%;
 `;
 
-const Title = styled.div.attrs({
-  children: "Pink Butterfly",
-})`
+const Title = styled.div`
   width: 50%;
   padding: 0.5em;
   text-align: center;
@@ -32,7 +29,6 @@ const Title = styled.div.attrs({
 `;
 
 const ImgService = styled.img.attrs({
-  src: urlFor("image_placeholder.jpg"),
   alt: "Some image",
 })`
   height: 70%;
@@ -49,17 +45,26 @@ const BigAssButton = styled.button`
   border-radius: 4px;
   background-color: inherit;
   color: white;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-type CollapsedProps = { open?: MouseEventHandler<HTMLButtonElement> };
+type CollapsedProps = {
+  open?: () => void;
+  bundleTitle?: string;
+  bundleCollapsedImage?: string;
+};
 
 const Collapsed = (
-  { open }: CollapsedProps = { open: () => undefined }
+  { open, bundleTitle, bundleCollapsedImage }: CollapsedProps = {
+    open: () => undefined,
+  }
 ): JSX.Element => (
   <CollapsedRoot>
-    <ImgService />
+    <ImgService src={bundleCollapsedImage} />
     <CollapsedFlex>
-      <Title />
+      <Title> {bundleTitle}</Title>
       <BigAssButton onClick={open}>Collapsed View</BigAssButton>
     </CollapsedFlex>
   </CollapsedRoot>

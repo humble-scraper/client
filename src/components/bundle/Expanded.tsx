@@ -1,83 +1,107 @@
 import styled from "styled-components";
-import { urlFor } from "../../util";
+import { ItemProps } from "./BundleContentProps";
+import ItemList from "./item/ItemList";
+import Mirror from "./mirror/Mirror";
 
 const ExpandedModalRoot = styled.div`
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  overflow: auto;
   padding-top: 3%;
-  padding-left: 20%;
+  padding-left: 13%;
   left: 0;
   top: 0;
+  justify-content: center;
 `;
 
 const ExpandedRoot = styled.div`
-  height: 85%;
-  width: 60em;
-  background: linear-gradient(
-    to right,
-    #bf953f,
-    #fcf6ba,
-    #b38728,
-    #fbf5b7,
-    #aa771c
-  );
-  margin: 1%;
+  min-height: 90%;
+  width: 75em;
+  background-color: #282c34;
   display: block;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(247, 244, 244, 0.19);
 `;
 
 const ExpandedFlex = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 29%;
+  min-height: 7em;
+  max-height: 60000em;
 `;
 
 const ImgService = styled.img.attrs({
-  src: urlFor("image_placeholder2.jpg"),
   alt: "Some image but expanded",
 })`
-  height: 70%;
+  height: 8em;
   width: 100%;
-  background-color: #a59225;
 `;
 
-const Title = styled.div.attrs({
-  children: "Gold Butterfly",
-})`
+const CoolRainbowThingy = styled.div`
+  height: 0.5em;
+  width: inherit;
+  background-image: linear-gradient(
+    130deg,
+    #ff7a18,
+    #af002d 41.07%,
+    #319197 76.05%
+  );
+`;
+
+const Title = styled.div`
   width: 50%;
   padding: 0.5em;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #524c4c;
+  font-size: 1.25em;
+  color: #ffffff;
+  margin: 0.5em;
 `;
 
-const BigAssButton = styled.button`
-  width: 30%;
-  height: 50%;
-  margin-left: 2.1em;
+const CloseButton = styled.button.attrs({
+  children: "Close",
+})`
+  height: 4em;
+  width: 40%;
   align-self: center;
-  border-radius: 4px;
-  background-color: gold;
+  margin-left: 30%;
+  margin-right: 30%;
+  color: white;
+  font-size: large;
+  background-color: #282c34a7;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(247, 244, 244, 0.19);
 `;
 
-type ExpandedProps = { open?: () => void };
+type ExpandedProps = {
+  open?: () => void;
+  bundleTitle?: string;
+  bundleExpandedImage?: string;
+  bundleItems?: ItemProps[];
+};
 
 const Expanded = (
-  { open }: ExpandedProps = { open: () => undefined }
+  { open, bundleTitle, bundleExpandedImage, bundleItems }: ExpandedProps = {
+    open: () => undefined,
+  }
 ): JSX.Element => (
   <ExpandedModalRoot>
     <ExpandedRoot>
-      <ImgService />
+      <ImgService src={bundleExpandedImage} />
+      <CoolRainbowThingy />
+      <Title>{bundleTitle}</Title>
       <ExpandedFlex>
-        <Title />
-        <BigAssButton onClick={open}>Close this window</BigAssButton>
+        <ItemList itemList={bundleItems} />
+        <Mirror bundleTitle={bundleTitle} />
       </ExpandedFlex>
+      <ExpandedFlex>
+        <CloseButton onClick={open} />
+      </ExpandedFlex>
+      <CoolRainbowThingy />
     </ExpandedRoot>
   </ExpandedModalRoot>
 );

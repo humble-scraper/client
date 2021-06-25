@@ -1,6 +1,8 @@
 import { CSSProperties } from "react";
 
 const assetPrefix = process.env.NODE_ENV === "production" ? "/client/" : "/";
+// const assetPrefix= "/";
+
 const urlFor = (path = ""): string =>
   `${assetPrefix}${path.replace(/^\//, "")}`;
 const redirect = (path = ""): void => window?.location?.replace(urlFor(path));
