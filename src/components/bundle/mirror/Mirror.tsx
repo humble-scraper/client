@@ -43,9 +43,7 @@ const MirrorLink = styled.div`
 
 type MirrorProps = { bundleTitle?: string };
 
-const Mirror = (
-  {bundleTitle}:MirrorProps
-): JSX.Element => (
+const Mirror = ({ bundleTitle }: MirrorProps): JSX.Element => (
   <MirrorRoot>
     <Title>{bundleTitle}</Title>
     <SubTitle>Available Downloads:</SubTitle>
