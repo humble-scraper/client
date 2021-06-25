@@ -96,7 +96,7 @@ const Expanded = (
       <Title>{bundleTitle}</Title>
       <ExpandedFlex>
         <ItemList itemList={bundleItems} />
-        <Mirror />
+        <Mirror bundleTitle={bundleTitle}/>
       </ExpandedFlex>
       <ExpandedFlex>
         <CloseButton onClick={open} />

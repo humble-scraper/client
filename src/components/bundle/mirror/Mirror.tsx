@@ -41,9 +41,13 @@ const MirrorLink = styled.div`
   }
 `;
 
-const Mirror = (): JSX.Element => (
+type MirrorProps = { bundleTitle?: string };
+
+const Mirror = (
+  {bundleTitle}:MirrorProps
+): JSX.Element => (
   <MirrorRoot>
-    <Title>Detroit: Become Human Deluxe Edition</Title>
+    <Title>{bundleTitle}</Title>
     <SubTitle>Available Downloads:</SubTitle>
     <MirrorLink>
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Z Lib</a>
@@ -58,7 +62,9 @@ const Mirror = (): JSX.Element => (
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">JoeMama books</a>
     </MirrorLink>
     <MirrorLink>
-      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Bootylicous Bookworms</a>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        Bootylicous Bookworms
+      </a>
     </MirrorLink>
   </MirrorRoot>
 );
