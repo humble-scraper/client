@@ -79,7 +79,7 @@ const itemTest2 = [
     itemTitle: "Planet Coaster Vintage Pack",
     itemPublisher: "Frontier Developments plc",
     itemPrice: 9.99,
-    itemImage: "frontier_Developments/studio_pack.jpg",
+    itemImage: "frontier_Developments/vintage_pack.jpg",
   },
   {
     itemTitle: "Planet Coaster World Fair Pack",
